@@ -11,7 +11,7 @@ We used MScsan in tbtools software for the computation of
 co-lineage genes in maize and other grasses.
 (maize B73 (AGPv4), Zea mexican (Yang et al., 2017) , 
 sorghum (Sorghum bicolor) (Tao et al., 2021), foxtail millet (Setaria italica), 
-two different coix lacryma-jobi L. and perennial grass (Guo et al., 2020). 
+two different coix lacryma-jobi L. and perennial grass (Guo et al., 2020)). 
 ###################################################################
 
 
