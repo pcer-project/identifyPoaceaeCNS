@@ -556,7 +556,7 @@ write.table(Setaria_italica_10k.syntenic_final.bed,"Setaria_italica_10k.syntenic
 #### 5. filter ####
 ## 5.1 Filter length ( < 8bp )
 ## maize
-tmp <- read.table("/lthpcfs/home/zhouyang/db/Genomes/maize_v4/maizev4.fa.fai",header = F,stringsAsFactors = F,sep = '\t')[,1:2]
+tmp <- read.table("~/Genomes/maize_v4/maizev4.fa.fai",header = F,stringsAsFactors = F,sep = '\t')[,1:2]
 ddply(maize_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
   x = x[x$new_start < tmp[tmp$V1 == unique(x$chr),2],]
   x$new_end[x$new_end >= tmp[tmp$V1 == unique(x$chr),2]] = tmp[tmp$V1 == unique(x$chr),2]
@@ -567,7 +567,7 @@ ddply(maize_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
 write.table(tmp1,"maize_10k.syntenic_final.bed",col.names = F,row.names = F,quote = F,sep = '\t')
 
 ## BJcoix
-tmp <- read.table("/lthpcfs/home/zhouyang/db/Genomes/BJCoxi_v1/BJCoxi_v1.fa.fai",header = F,stringsAsFactors = F,sep = '\t')[1:10,1:2]
+tmp <- read.table("~/Genomes/BJCoxi_v1/BJCoxi_v1.fa.fai",header = F,stringsAsFactors = F,sep = '\t')[1:10,1:2]
 ddply(BJcoix_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
   x = x[x$new_start < tmp[tmp$V1 == unique(x$chr),2],]
   x$new_end[x$new_end >= tmp[tmp$V1 == unique(x$chr),2]] = tmp[tmp$V1 == unique(x$chr),2]
@@ -578,7 +578,7 @@ ddply(BJcoix_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
 write.table(BJcoix_10k.syntenic_final.bed,"BJcoix_10k.syntenic_final.bed",col.names = F,row.names = F,quote = F,sep = '\t')
 
 ## Lachesis
-tmp <- read.table("/lthpcfs/home/zhouyang/db/Genomes/Lachesis/Lachesis.fa.fai",header = F,stringsAsFactors = F,sep = '\t')[1:10,1:2]
+tmp <- read.table("~/Genomes/Lachesis/Lachesis.fa.fai",header = F,stringsAsFactors = F,sep = '\t')[1:10,1:2]
 ddply(Lachesis_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
   x = x[x$new_start < tmp[tmp$V1 == unique(x$chr),2],]
   x$new_end[x$new_end >= tmp[tmp$V1 == unique(x$chr),2]] = tmp[tmp$V1 == unique(x$chr),2]
@@ -588,7 +588,7 @@ ddply(Lachesis_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
 write.table(Lachesis_10k.syntenic_final.bed,"Lachesis_10k.syntenic_final.bed",col.names = F,row.names = F,quote = F,sep = '\t')
 
 ## Sorghum_bicolor
-tmp <- read.table("/lthpcfs/home/zhouyang/db/Genomes/Sorghum_bicolor_v3/Sorghum_bicolor_v3.fna.fai",header = F,stringsAsFactors = F,sep = '\t')[1:10,1:2]
+tmp <- read.table("~/Genomes/Sorghum_bicolor_v3/Sorghum_bicolor_v3.fna.fai",header = F,stringsAsFactors = F,sep = '\t')[1:10,1:2]
 ddply(Sorghum_bicolor_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
   x = x[x$new_start < tmp[tmp$V1 == unique(x$chr),2],]
   x$new_end[x$new_end >= tmp[tmp$V1 == unique(x$chr),2]] = tmp[tmp$V1 == unique(x$chr),2]
@@ -599,7 +599,7 @@ ddply(Sorghum_bicolor_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
 write.table(Sorghum_bicolor_10k.syntenic_final.bed,"Sorghum_bicolor_10k.syntenic_final.bed",col.names = F,row.names = F,quote = F,sep = '\t')
 
 ## Mexicana
-tmp <- read.table("/lthpcfs/home/zhouyang/db/Genomes/Mexicana/Mexicana.fa.fai",header = F,stringsAsFactors = F,sep = '\t')[1:10,1:2]
+tmp <- read.table("~/Genomes/Mexicana/Mexicana.fa.fai",header = F,stringsAsFactors = F,sep = '\t')[1:10,1:2]
 tmp$V1 = paste("chr",tmp$V1,sep = "")
 ddply(Mexicana_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
   x = x[x$new_start < tmp[tmp$V1 == unique(x$chr),2],]
@@ -611,7 +611,7 @@ ddply(Mexicana_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
 write.table(Mexicana_10k.syntenic_final.bed,"Mexicana_10k.syntenic_final.bed",col.names = F,row.names = F,quote = F,sep = '\t')
 
 ## Setaria_italica_10k.syntenic_final.bed
-tmp <- read.table("/lthpcfs/home/zhouyang/db/Genomes/Setaria_italica_v2.0/Setaria_italica_v2.0.fa.fai",header = F,stringsAsFactors = F,sep = '\t')
+tmp <- read.table("~/Genomes/Setaria_italica_v2.0/Setaria_italica_v2.0.fa.fai",header = F,stringsAsFactors = F,sep = '\t')
 tmp = tmp[grep("NC",tmp$V1),]
 ddply(Setaria_italica_10k.syntenic_final.bed,.(chr),.parallel = T,function(x){
   x = x[x$new_start < tmp[tmp$V1 == unique(x$chr),2],]
@@ -680,12 +680,12 @@ write.table(Setaria_italica_10k.syntenic_final.bed,"Setaria_italica_10k.syntenic
 #### 6. Preparing to input data
 ## 6.1 extract sequence
 library(Biostrings)
-system("bedtools getfasta -fi /lthpcfs/home/zhouyang/db/Genomes/maize_v4/maizev4.fa -name -bed maize_10k.syntenic_final.bed>maize_10k.syntenic_final.fa")
-system("bedtools getfasta -fi /lthpcfs/home/zhouyang/db/Genomes/BJCoxi_v1/BJCoxi_v1.fa -name -bed BJcoix_10k.syntenic_final.bed>BJcoix_10k.syntenic_final.fa")
-system("bedtools getfasta -fi /lthpcfs/home/zhouyang/db/Genomes/Lachesis/Lachesis.fa -name -bed Lachesis_10k.syntenic_final.bed>Lachesis_10k.syntenic_final.fa")
-system("bedtools getfasta -fi /lthpcfs/home/zhouyang/db/Genomes/Sorghum_bicolor_v3/Sorghum_bicolor_v3.fna -name -bed Sorghum_bicolor_10k.syntenic_final.bed>Sorghum_bicolor_10k.syntenic_final.fa")
-system("bedtools getfasta -fi /lthpcfs/home/zhouyang/db/Genomes/Mexicana/Mexicana.fa -name -bed Mexicana_10k.syntenic_final.bed>Mexicana_10k.syntenic_final.fa")
-system("bedtools getfasta -fi /lthpcfs/home/zhouyang/db/Genomes/Setaria_italica_v2.0/Setaria_italica_v2.0.fa -name -bed Setaria_italica_10k.syntenic_final.bed>Setaria_italica_10k.syntenic.fa")
+system("bedtools getfasta -fi ~/Genomes/maize_v4/maizev4.fa -name -bed maize_10k.syntenic_final.bed>maize_10k.syntenic_final.fa")
+system("bedtools getfasta -fi ~/Genomes/BJCoxi_v1/BJCoxi_v1.fa -name -bed BJcoix_10k.syntenic_final.bed>BJcoix_10k.syntenic_final.fa")
+system("bedtools getfasta -fi ~/Genomes/Lachesis/Lachesis.fa -name -bed Lachesis_10k.syntenic_final.bed>Lachesis_10k.syntenic_final.fa")
+system("bedtools getfasta -fi ~/Genomes/Sorghum_bicolor_v3/Sorghum_bicolor_v3.fna -name -bed Sorghum_bicolor_10k.syntenic_final.bed>Sorghum_bicolor_10k.syntenic_final.fa")
+system("bedtools getfasta -fi ~/Genomes/Mexicana/Mexicana.fa -name -bed Mexicana_10k.syntenic_final.bed>Mexicana_10k.syntenic_final.fa")
+system("bedtools getfasta -fi ~/Genomes/Setaria_italica_v2.0/Setaria_italica_v2.0.fa -name -bed Setaria_italica_10k.syntenic_final.bed>Setaria_italica_10k.syntenic.fa")
 
 ## 6.2 get.type function: extract non-coding sequence 
 get.type = function(input.fa,input.bed){
